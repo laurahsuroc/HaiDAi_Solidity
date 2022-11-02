@@ -2,6 +2,11 @@
 pragma solidity ^0.8.17;
 
 contract Piggybank {
+    address public owner;
+    modifier onlyOwner(){
+        require(owner == msg.sender, "Only owner can sell this function");
+        _;
+    }
     constructor()payable {
         owner = msg.sender 
 
